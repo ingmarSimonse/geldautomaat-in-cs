@@ -1,0 +1,24 @@
+.vs/
+Backup/
+Geldautomaat.sln
+README.md
+UpgradeLog.html
+Geldautomaat/bin/
+Geldautomaat/fonts/
+Geldautomaat/images/
+Geldautomaat/obj/
+Geldautomaat - Medewerker/bin/
+Geldautomaat - Medewerker/images/
+Geldautomaat - Medewerker/obj/
+Geldautomaat - Medewerker/App.config
+Geldautomaat - Medewerker/App.xaml
+Geldautomaat - Medewerker/App.xaml.cs
+Geldautomaat - Medewerker/AssemblyInfo.cs
+Geldautomaat - Medewerker/Geldautomaat - Medewerker.csproj
+Geldautomaat - Medewerker/Geldautomaat - Medewerker.csproj.user
+Geldautomaat/App.config
+Geldautomaat/App.xaml.cs
+Geldautomaat/AssemblyInfo.cs
+Geldautomaat/Geldautomaat.csproj
+Geldautomaat/Geldautomaat.csproj.user
+UpgradeLog.htm

@@ -1,0 +1,106 @@
+﻿<Window x:Class="Geldautomaat___Medewerker.Views.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Geldautomaat___Medewerker.Views"
+        mc:Ignorable="d"
+        Title="Admin" Height="1080" Width="1920" WindowState="Maximized">
+    <Grid>
+
+        <Grid x:Name="grdAdmin">
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="86*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="95*"/>
+            </Grid.RowDefinitions>
+
+            <Viewbox>
+                <Button x:Name="btnSearch" Content="🔍"/>
+            </Viewbox>
+            <Viewbox HorizontalAlignment="Left" Grid.Column="1">
+                <TextBox x:Name="txbSearch" Text="" MinWidth="100" Margin="5, 0, 0, 0"/>
+            </Viewbox>
+            <Viewbox Grid.Column="2">
+                <Button x:Name="btnLogOut" Content="Uitloggen"/>
+            </Viewbox>
+
+
+            <ScrollViewer x:Name="scrollViewer" Grid.Column="0" Grid.Row="1" Grid.ColumnSpan="3" VerticalAlignment="Top" 
+                    ScrollViewer.CanContentScroll="True" VerticalScrollBarVisibility="Auto">
+                <Viewbox>
+                    <DataGrid Name="dgUsers" BorderBrush="Transparent" Background="Transparent" AutoGenerateColumns="False" 
+                                        HeadersVisibility="All"
+                                        HorizontalAlignment="Center" 
+                                        HorizontalScrollBarVisibility="Disabled"
+                                        ItemsSource="{Binding Path=LoadDataBinding}" 
+                                        CanUserResizeRows="False"
+                                        CanUserAddRows="False">
+
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Binding="{Binding Path=ID}" Header="Rekeningnummer" Width="105" IsReadOnly="True"/>
+                            <DataGridTextColumn Binding="{Binding Path=name}" Header="naam" Width="150" />
+                            <DataGridTextColumn Binding="{Binding Path=adress}" Header="adres" Width="150" />
+                            <DataGridTextColumn Binding="{Binding Path=balance}" Header="saldo" Width="100" IsReadOnly="True"/>
+                            <DataGridCheckBoxColumn Binding="{Binding Path=blocked}" Header="geblokkeerd" Width="75"/>
+                            <DataGridCheckBoxColumn Binding="{Binding Path=admin}" Header="admin" Width="75"/>
+
+                            <DataGridTemplateColumn Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Reset Pin" Click="BtnResetPin_Click">
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <Border Background="{TemplateBinding Background}">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                            <DataGridTemplateColumn Width="55">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Content="Opslaan" Click="BtnSave_Click">
+                                            <Button.Style>
+                                                <Style TargetType="{x:Type Button}">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type Button}">
+                                                                <Border Background="{TemplateBinding Background}">
+                                                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                                                </Border>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </Button.Style>
+                                        </Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+
+                        </DataGrid.Columns>
+
+                    </DataGrid>
+                </Viewbox>
+            </ScrollViewer>
+        </Grid>
+
+    </Grid>
+</Window>
+
